@@ -94,6 +94,7 @@ bg_color = Color(0, 0.717647, 0, 1)
 [node name="Raccoon" type="Node" node_paths=PackedStringArray("health_bar")]
 script = ExtResource("1_0t0xw")
 health = 100
+type = "Salty"
 health_bar = NodePath("ProgressBar")
 metadata/_custom_type_script = "uid://bq5ilp615mwft"
 
