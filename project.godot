@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="ProjectBixinho"
-run/main_scene="res://Scenes/raccoon.tscn"
+run/main_scene="res://Scenes/creature.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://Sprites/icon.svg"
+
+[display]
+
+window/size/mode=3
+window/stretch/mode="viewport"
 
 [editor_plugins]
 

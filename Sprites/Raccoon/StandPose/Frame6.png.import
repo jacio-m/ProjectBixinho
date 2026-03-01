@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl31yfo1tmxjs"
-path="res://.godot/imported/Frame5.png-4977dabb2b2bc70763c40b01fc01e529.ctex"
+uid="uid://bpgfhi72skg2s"
+path="res://.godot/imported/Frame6.png-1ae44b24a2b9cfa0443a3d1995cf7e1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/StandPose/Frame5.png"
-dest_files=["res://.godot/imported/Frame5.png-4977dabb2b2bc70763c40b01fc01e529.ctex"]
+source_file="res://Sprites/Raccoon/StandPose/Frame6.png"
+dest_files=["res://.godot/imported/Frame6.png-1ae44b24a2b9cfa0443a3d1995cf7e1f.ctex"]
 
 [params]
 

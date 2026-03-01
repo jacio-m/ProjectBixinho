@@ -1,17 +1,22 @@
-[gd_scene load_steps=14 format=3 uid="uid://cyxb2swoyu7lo"]
+[gd_scene load_steps=16 format=3 uid="uid://cqwmqwh4l4683"]
 
-[ext_resource type="Script" uid="uid://bq5ilp615mwft" path="res://Scripts/raccoon.gd" id="1_0t0xw"]
-[ext_resource type="Texture2D" uid="uid://dk1rwj5hpgx01" path="res://Sprites/StandPose/Frame1.png" id="2_ertas"]
-[ext_resource type="Texture2D" uid="uid://denghtx0ck5bf" path="res://Sprites/StandPose/Frame2.png" id="3_3y3ei"]
-[ext_resource type="Texture2D" uid="uid://dwyhgln0juqt3" path="res://Sprites/StandPose/Frame3.png" id="4_uf5uh"]
-[ext_resource type="Texture2D" uid="uid://b2d4vlvlcn32f" path="res://Sprites/StandPose/Frame4.png" id="5_a8l7g"]
-[ext_resource type="Texture2D" uid="uid://dl31yfo1tmxjs" path="res://Sprites/StandPose/Frame5.png" id="6_shker"]
-[ext_resource type="Texture2D" uid="uid://bpgfhi72skg2s" path="res://Sprites/StandPose/Frame6.png" id="7_nrbdk"]
-[ext_resource type="Texture2D" uid="uid://cac2wncsjhxc2" path="res://Sprites/StandPose/Frame7.png" id="8_qct6t"]
-[ext_resource type="Texture2D" uid="uid://b102cfcnaodv3" path="res://Sprites/StandPose/Frame8.png" id="9_rfd4p"]
+[ext_resource type="Script" uid="uid://bq5ilp615mwft" path="res://Scripts/creature.gd" id="1_0t0xw"]
+[ext_resource type="Texture2D" uid="uid://dk1rwj5hpgx01" path="res://Sprites/Raccoon/StandPose/Frame1.png" id="2_ertas"]
+[ext_resource type="Texture2D" uid="uid://denghtx0ck5bf" path="res://Sprites/Raccoon/StandPose/Frame2.png" id="3_3y3ei"]
+[ext_resource type="Texture2D" uid="uid://dwyhgln0juqt3" path="res://Sprites/Raccoon/StandPose/Frame3.png" id="4_uf5uh"]
+[ext_resource type="Texture2D" uid="uid://b2d4vlvlcn32f" path="res://Sprites/Raccoon/StandPose/Frame4.png" id="5_a8l7g"]
+[ext_resource type="Texture2D" uid="uid://dl31yfo1tmxjs" path="res://Sprites/Raccoon/StandPose/Frame5.png" id="6_shker"]
+[ext_resource type="Texture2D" uid="uid://bpgfhi72skg2s" path="res://Sprites/Raccoon/StandPose/Frame6.png" id="7_nrbdk"]
+[ext_resource type="Texture2D" uid="uid://cac2wncsjhxc2" path="res://Sprites/Raccoon/StandPose/Frame7.png" id="8_qct6t"]
+[ext_resource type="Texture2D" uid="uid://b102cfcnaodv3" path="res://Sprites/Raccoon/StandPose/Frame8.png" id="9_rfd4p"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_sps8e"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_tr7uv"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"AttackPose",
+"speed": 6.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_ertas")
@@ -80,17 +85,34 @@ _data = {
 &"RESET": SubResource("Animation_f0urt")
 }
 
-[node name="Node" type="Node"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kcyh1"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6sndi"]
+bg_color = Color(0, 0.717647, 0, 1)
+
+[node name="Raccoon" type="Node" node_paths=PackedStringArray("health_bar")]
 script = ExtResource("1_0t0xw")
+health = 100
+health_bar = NodePath("ProgressBar")
+metadata/_custom_type_script = "uid://bq5ilp615mwft"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(354, 340)
-sprite_frames = SubResource("SpriteFrames_sps8e")
+sprite_frames = SubResource("SpriteFrames_tr7uv")
 animation = &"StandPose"
-frame_progress = 0.353967
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../AnimatedSprite2D")
+[node name="Animation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite")
 libraries = {
 &"": SubResource("AnimationLibrary_jfkdj")
 }
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 658.0
+offset_top = 88.0
+offset_right = 1061.0
+offset_bottom = 152.0
+theme_override_styles/background = SubResource("StyleBoxFlat_kcyh1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6sndi")
+show_percentage = false

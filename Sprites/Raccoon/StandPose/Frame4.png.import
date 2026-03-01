@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2d4vlvlcn32f"
-path="res://.godot/imported/Frame4.png-6df85a3031038f2721bbd3fa7a448eea.ctex"
+path="res://.godot/imported/Frame4.png-def5024b019333b942053a55dff71b47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/StandPose/Frame4.png"
-dest_files=["res://.godot/imported/Frame4.png-6df85a3031038f2721bbd3fa7a448eea.ctex"]
+source_file="res://Sprites/Raccoon/StandPose/Frame4.png"
+dest_files=["res://.godot/imported/Frame4.png-def5024b019333b942053a55dff71b47.ctex"]
 
 [params]
 
