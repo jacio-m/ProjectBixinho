@@ -22,6 +22,7 @@ func _process(delta):
 		take_damage("Salty", 100)
 
 func take_damage(damage_type, damage_val):
+	var tween = get_tree().create_tween()
 	if alive == false:
 		return
 	else:
@@ -96,7 +97,7 @@ func take_damage(damage_type, damage_val):
 			damage_val = 0
 			
 		health -= damage_val
-		health_bar.value = health
+		tween.tween_property(health_bar,"value",health,0.2)
 		health_bar_num.text = str(health)
 	if health <= 0:
 		alive = false
