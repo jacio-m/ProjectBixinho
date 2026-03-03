@@ -6,7 +6,8 @@ class_name Creature
 @export var alive = true
 @export var type = ""
 @export var type2 = ""
-@export var health_bar : ProgressBar
+@export var type3 = ""
+@export var health_bar : TextureProgressBar
 @export var health_bar_num : Label
 
 func _ready():

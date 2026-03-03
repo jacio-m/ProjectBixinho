@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cqwmqwh4l4683"]
+[gd_scene load_steps=19 format=3 uid="uid://cqwmqwh4l4683"]
 
 [ext_resource type="Script" uid="uid://bq5ilp615mwft" path="res://Scripts/creature.gd" id="1_0t0xw"]
 [ext_resource type="Texture2D" uid="uid://dk1rwj5hpgx01" path="res://Sprites/Raccoon/StandPose/Frame1.png" id="2_ertas"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bpgfhi72skg2s" path="res://Sprites/Raccoon/StandPose/Frame6.png" id="7_nrbdk"]
 [ext_resource type="Texture2D" uid="uid://cac2wncsjhxc2" path="res://Sprites/Raccoon/StandPose/Frame7.png" id="8_qct6t"]
 [ext_resource type="Texture2D" uid="uid://b102cfcnaodv3" path="res://Sprites/Raccoon/StandPose/Frame8.png" id="9_rfd4p"]
+[ext_resource type="FontFile" uid="uid://c3bxsnyhjtbid" path="res://Fonts/Dragon-Angled.otf" id="10_ertas"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tr7uv"]
 animations = [{
@@ -85,23 +86,35 @@ _data = {
 &"RESET": SubResource("Animation_f0urt")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0t0xw"]
-bg_color = Color(1, 0, 0, 1)
+[sub_resource type="Gradient" id="Gradient_ertas"]
+offsets = PackedFloat32Array(0.335714, 1)
+colors = PackedColorArray(0.737255, 0.227451, 0.360784, 1, 1, 0.329412, 0.298039, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ertas"]
-bg_color = Color(0, 0.717647, 0, 1)
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ertas"]
+gradient = SubResource("Gradient_ertas")
+fill_from = Vector2(0.539216, 0.995098)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_3y3ei"]
+offsets = PackedFloat32Array(0.271429, 1)
+colors = PackedColorArray(0.34902, 0.717647, 0.301961, 1, 0.698039, 0.929412, 0.278431, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3y3ei"]
+gradient = SubResource("Gradient_3y3ei")
+fill_from = Vector2(0.519608, 1)
+fill_to = Vector2(0.509804, 0)
 
 [node name="Raccoon" type="Node" node_paths=PackedStringArray("health_bar", "health_bar_num")]
 script = ExtResource("1_0t0xw")
 nickname = "Raccoon"
 health = 1000
 type = "Sweet"
-health_bar = NodePath("ProgressBar")
-health_bar_num = NodePath("ProgressBar/Label")
+health_bar = NodePath("TextureProgressBar")
+health_bar_num = NodePath("TextureProgressBar/Label")
 metadata/_custom_type_script = "uid://bq5ilp615mwft"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(354, 340)
+position = Vector2(441, 504)
 sprite_frames = SubResource("SpriteFrames_tr7uv")
 animation = &"StandPose"
 
@@ -111,20 +124,35 @@ libraries = {
 &"": SubResource("AnimationLibrary_jfkdj")
 }
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = 216.0
-offset_top = 613.0
-offset_right = 368.0
-offset_bottom = 640.0
-scale = Vector2(2, 2)
-theme_override_styles/background = SubResource("StyleBoxFlat_0t0xw")
-theme_override_styles/fill = SubResource("StyleBoxFlat_ertas")
-show_percentage = false
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 205.0
+offset_top = 786.0
+offset_right = 357.0
+offset_bottom = 813.0
+scale = Vector2(3, 3)
+value = 50.0
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture2D_ertas")
+texture_progress = SubResource("GradientTexture2D_3y3ei")
 
-[node name="Label" type="Label" parent="ProgressBar"]
+[node name="Label" type="Label" parent="TextureProgressBar"]
 layout_mode = 0
-offset_left = 54.5
-offset_right = 93.5
-offset_bottom = 27.0
+offset_left = 56.6667
+offset_top = -2.33334
+offset_right = 95.6667
+offset_bottom = 37.6667
+theme_override_colors/font_color = Color(0.933333, 0.913725, 0.858824, 1)
+theme_override_colors/font_shadow_color = Color(0.666667, 0.662745, 0.745098, 1)
+theme_override_fonts/font = ExtResource("10_ertas")
+theme_override_font_sizes/font_size = 32
 text = "num"
 horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="TextureProgressBar"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 154.0
+offset_bottom = 29.0
+color = Color(0.180392, 0.168627, 0.243137, 1)

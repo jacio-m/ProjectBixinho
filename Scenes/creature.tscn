@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyxb2swoyu7lo"]
+[gd_scene load_steps=11 format=3 uid="uid://cyxb2swoyu7lo"]
 
 [ext_resource type="Script" uid="uid://bq5ilp615mwft" path="res://Scripts/creature.gd" id="1_vbe5j"]
+[ext_resource type="FontFile" uid="uid://c3bxsnyhjtbid" path="res://Fonts/Dragon-Angled.otf" id="2_01bph"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sps8e"]
 animations = [{
@@ -53,11 +54,23 @@ _data = {
 &"RESET": SubResource("Animation_f0urt")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vbe5j"]
-bg_color = Color(1, 0, 0, 1)
+[sub_resource type="Gradient" id="Gradient_ulpcw"]
+offsets = PackedFloat32Array(0.335714, 1)
+colors = PackedColorArray(0.737255, 0.227451, 0.360784, 1, 1, 0.329412, 0.298039, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01bph"]
-bg_color = Color(0, 0.717647, 0, 1)
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_01bph"]
+gradient = SubResource("Gradient_ulpcw")
+fill_from = Vector2(0.539216, 0.995098)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_ktm42"]
+offsets = PackedFloat32Array(0.271429, 1)
+colors = PackedColorArray(0.34902, 0.717647, 0.301961, 1, 0.698039, 0.929412, 0.278431, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ulpcw"]
+gradient = SubResource("Gradient_ktm42")
+fill_from = Vector2(0.519608, 1)
+fill_to = Vector2(0.509804, 0)
 
 [node name="Creature" type="Node"]
 script = ExtResource("1_vbe5j")
@@ -73,19 +86,35 @@ libraries = {
 &"": SubResource("AnimationLibrary_jfkdj")
 }
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = 19.0
-offset_top = 32.0
-offset_right = 171.0
-offset_bottom = 59.0
-theme_override_styles/background = SubResource("StyleBoxFlat_vbe5j")
-theme_override_styles/fill = SubResource("StyleBoxFlat_01bph")
-show_percentage = false
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 118.0
+offset_top = 622.0
+offset_right = 270.0
+offset_bottom = 649.0
+scale = Vector2(3, 3)
+value = 50.0
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture2D_01bph")
+texture_progress = SubResource("GradientTexture2D_ulpcw")
 
-[node name="Label" type="Label" parent="ProgressBar"]
+[node name="Label" type="Label" parent="TextureProgressBar"]
 layout_mode = 0
-offset_left = 56.0
-offset_right = 95.0
-offset_bottom = 27.0
+offset_left = 56.6667
+offset_top = -2.33334
+offset_right = 95.6667
+offset_bottom = 37.6667
+theme_override_colors/font_color = Color(0.933333, 0.913725, 0.858824, 1)
+theme_override_colors/font_shadow_color = Color(0.666667, 0.662745, 0.745098, 1)
+theme_override_fonts/font = ExtResource("2_01bph")
+theme_override_font_sizes/font_size = 32
 text = "num"
 horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="TextureProgressBar"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 154.0
+offset_bottom = 29.0
+color = Color(0.180392, 0.168627, 0.243137, 1)
