@@ -85,17 +85,19 @@ _data = {
 &"RESET": SubResource("Animation_f0urt")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kcyh1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0t0xw"]
 bg_color = Color(1, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6sndi"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ertas"]
 bg_color = Color(0, 0.717647, 0, 1)
 
-[node name="Raccoon" type="Node" node_paths=PackedStringArray("health_bar")]
+[node name="Raccoon" type="Node" node_paths=PackedStringArray("health_bar", "health_bar_num")]
 script = ExtResource("1_0t0xw")
-health = 100
-type = "Salty"
+nickname = "Raccoon"
+health = 1000
+type = "Sweet"
 health_bar = NodePath("ProgressBar")
+health_bar_num = NodePath("ProgressBar/Label")
 metadata/_custom_type_script = "uid://bq5ilp615mwft"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
@@ -110,10 +112,19 @@ libraries = {
 }
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = 658.0
-offset_top = 88.0
-offset_right = 1061.0
-offset_bottom = 152.0
-theme_override_styles/background = SubResource("StyleBoxFlat_kcyh1")
-theme_override_styles/fill = SubResource("StyleBoxFlat_6sndi")
+offset_left = 216.0
+offset_top = 613.0
+offset_right = 368.0
+offset_bottom = 640.0
+scale = Vector2(2, 2)
+theme_override_styles/background = SubResource("StyleBoxFlat_0t0xw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ertas")
 show_percentage = false
+
+[node name="Label" type="Label" parent="ProgressBar"]
+layout_mode = 0
+offset_left = 54.5
+offset_right = 93.5
+offset_bottom = 27.0
+text = "num"
+horizontal_alignment = 1

@@ -74,8 +74,18 @@ libraries = {
 }
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-offset_right = 152.0
-offset_bottom = 27.0
+offset_left = 19.0
+offset_top = 32.0
+offset_right = 171.0
+offset_bottom = 59.0
 theme_override_styles/background = SubResource("StyleBoxFlat_vbe5j")
 theme_override_styles/fill = SubResource("StyleBoxFlat_01bph")
 show_percentage = false
+
+[node name="Label" type="Label" parent="ProgressBar"]
+layout_mode = 0
+offset_left = 56.0
+offset_right = 95.0
+offset_bottom = 27.0
+text = "num"
+horizontal_alignment = 1
